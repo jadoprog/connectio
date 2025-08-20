@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Votre Agence Web - Simplicité, Humanité & Liberté</title>
+  <!-- Utilisation de la police 'Inter' depuis Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Intégration de Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Intégration de Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f9fa;
+      color: #343a40;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    /* Définition des couleurs personnalisées */
+    :root {
+      --bs-blue: #0d6efd;
+      --bs-turquoise: #00bcd4;
+      /* Un turquoise distinct */
+    }
+
+    .btn-turquoise {
+      background-color: var(--bs-turquoise);
+      border-color: var(--bs-turquoise);
+      color: white;
+    }
+
+    .btn-turquoise:hover {
+      background-color: #00aabf;
+      border-color: #00aabf;
+    }
+
+    .text-turquoise {
+      color: var(--bs-turquoise) !important;
+    }
+
+    .text-blue {
+      color: var(--bs-blue) !important;
+    }
+
+    .bg-turquoise {
+      background-color: var(--bs-turquoise) !important;
+    }
+
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      /* Prend 100% de la hauteur de l'écran */
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      /* Overlay noir semi-transparent */
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      /* Texte en blanc pour le contraste */
+    }
+
+    .text-white-50 {
+      color: rgba(255, 255, 255, 0.75) !important;
+    }
+
+    .btn-outline-white {
+      color: white;
+      border-color: white;
+    }
+
+    .btn-outline-white:hover {
+      background-color: white;
+      color: black;
+    }
+
+    /* Style pour le menu en glassmorphism */
+    .navbar-glass {
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 1rem;
+      max-width: 900px;
+      /* Limite la largeur du menu */
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .header-sticky {
+      width: 100%;
+      position: fixed;
+      top: 1rem;
+      /* Décalage pour l'effet flottant */
+      z-index: 1000;
+    }
+
+    /* Cette règle CSS permet d'ajouter un espace en haut de la page lors du défilement vers un lien d'ancrage, en fonction de la hauteur du menu fixe */
+    :root {
+      --header-height: 0px;
+    }
+
+    html {
+      scroll-padding-top: var(--header-height);
+    }
+
+    #logo {
+
+      width: 50px;
+      scale: 4;
+      translate: 50px;
+
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+
+  <!-- En-tête avec menu permanent et sticky -->
+  <header class="header-sticky">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-glass py-3 px-4">
+        <a class="navbar-brand text-2xl fw-bold" href="#">
+          <img src="./logo.png" alt="" id="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-lg-none">
+            <li class="nav-item"><a class="nav-link" href="#philosophie">Notre Philosophie</a></li>
+            <li class="nav-item"><a class="nav-link" href="#services">Nos Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#pourquoi-nous">Pourquoi Nous ?</a></li>
+            <li class="nav-item"><a class="nav-link btn btn-turquoise text-white mt-2 rounded-lg"
+                href="#contact">Contact</a></li>
+          </ul>
+          <ul class="navbar-nav d-none d-lg-flex">
+            <li class="nav-item"><a class="nav-link text-dark" href="#philosophie">Notre Philosophie</a></li>
+            <li class="nav-item"><a class="nav-link text-dark" href="#services">Nos Services</a></li>
+            <li class="nav-item"><a class="nav-link text-dark" href="#pourquoi-nous">Pourquoi Nous ?</a></li>
+            <li class="nav-item"><a class="btn btn-turquoise text-white rounded-lg ms-3" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section Héros avec vidéo en arrière-plan -->
+    <section class="hero-section">
+      <video class="hero-video" autoplay loop muted playsinline>
+        <source src="https://videos.pexels.com/video-files/6781918/6781918-uhd_1440_2560_30fps.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo.
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="container text-center hero-content">
+        <h1 class="display-4 fw-bold text-white">
+          Votre site web, <span class="text-turquoise">votre liberté</span>.
+        </h1>
+        <p class="mt-4 lead text-white-50 mx-auto" style="max-width: 700px;">
+          Nous créons des sites web sur mesure, avec un outil simple et une équipe humaine toujours là pour vous. Votre
+          site vous appartient, de A à Z.
+        </p>
+        <!-- Ajout de l'information sur le prix -->
+        <div class="my-4">
+          <p class="h4 fw-semibold text-white mb-1">À partir de <span class="text-turquoise">2500 €</span></p>
+          <p class="text-white-50">
+            Ce prix tout inclus couvre la charte graphique, le développement, et la mise en ligne de votre site.
+          </p>
+        </div>
+        <div class="mt-4 d-flex justify-content-center gap-3">
+          <a href="#contact" class="btn btn-turquoise btn-lg rounded-pill shadow-lg">
+            Démarrer votre projet
+          </a>
+          <a href="#pourquoi-nous" class="btn btn-outline-white btn-lg rounded-pill shadow-lg border">
+            Découvrir notre approche
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section "Notre Philosophie" -->
+    <section id="philosophie" class="py-5 bg-white">
+      <div class="container text-center">
+        <h2 class="h3 fw-bold text-dark">Notre philosophie en trois points</h2>
+        <p class="mt-3 text-muted mx-auto" style="max-width: 800px;">
+          Nous croyons en un web plus humain, où la technologie est au service de vos idées, sans contraintes.
+        </p>
+        <div class="row mt-5 g-4">
+          <!-- Carte 1 : Humanité -->
+          <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm rounded-lg p-4">
+              <div class="text-turquoise mb-3">
+                <i class="bi bi-balloon-heart" style="font-size: 3rem;"></i>
+              </div>
+              <h3 class="h5 fw-semibold text-dark">Humanité</h3>
+              <p class="text-muted">
+                Un problème ? Un doute ? Appelez-nous. Nous sommes de vraies personnes, prêtes à vous aider. Finis les
+                chatbots et les formulaires sans réponse.
+              </p>
+            </div>
+          </div>
+          <!-- Carte 2 : Simplicité -->
+          <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm rounded-lg p-4">
+              <div class="text-turquoise mb-3">
+                <i class="bi bi-lightbulb" style="font-size: 3rem;"></i>
+              </div>
+              <h3 class="h5 fw-semibold text-dark">Simplicité</h3>
+              <p class="text-muted">
+                Notre outil de création est intuitif et facile à prendre en main. Pas besoin d'être un développeur pour
+                gérer votre site au quotidien.
+              </p>
+            </div>
+          </div>
+          <!-- Carte 3 : Liberté -->
+          <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm rounded-lg p-4">
+              <div class="text-turquoise mb-3">
+                <i class="bi bi-unlock" style="font-size: 3rem;"></i>
+              </div>
+              <h3 class="h5 fw-semibold text-dark">Liberté</h3>
+              <p class="text-muted">
+                Votre site est une propriété. Contrairement aux plateformes fermées, vous êtes libre de l'héberger où
+                vous voulez et de le faire évoluer comme vous l'entendez.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nouvelle section sur l'unicité du client -->
+    <section id="unicite" class="py-5 bg-light">
+      <div class="container text-center">
+        <h2 class="h3 fw-bold text-dark">Chaque projet est unique. Le vôtre aussi.</h2>
+        <div class="row align-items-center mt-5">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <img src="https://images.pexels.com/photos/3585011/pexels-photo-3585011.jpeg" class="img-fluid rounded h-50"
+              alt="Illustration des paramètres personnels">
+          </div>
+          <div class="col-lg-6 text-start position-sticky">
+            <h3 class="h5 fw-semibold text-dark">Votre histoire, notre création.</h3>
+            <p class="text-muted">
+              Votre entreprise a une identité forte. Votre projet est le reflet de vos ambitions. C'est pourquoi nous ne
+              travaillons pas avec des modèles génériques. Nous prenons le temps de comprendre vos besoins et vos
+              objectifs pour créer un site web qui vous ressemble, un outil qui grandit avec vous.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Section "Nos Services" -->
+    <section id="services" class="py-5 bg-light">
+      <div class="container text-center">
+        <h2 class="h3 fw-bold text-dark">Des services pensés pour vous</h2>
+        <p class="mt-3 text-muted mx-auto" style="max-width: 800px;">
+          Nous offrons des solutions sur mesure qui s'adaptent à vos besoins, pas l'inverse.
+        </p>
+        <div class="row mt-5 g-4">
+          <!-- Service 1 : Création de site sur mesure -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-lg border-0 rounded-lg p-4">
+              <h3 class="h5 fw-semibold text-dark">Création de site sur mesure</h3>
+              <p class="text-muted">
+                Un site unique, conçu spécialement pour refléter l'identité de votre marque. Pas de modèles préconçus,
+                juste du design qui vous ressemble.
+              </p>
+            </div>
+          </div>
+          <!-- Service 2 : Boutique en ligne (e-commerce) -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-lg border-0 rounded-lg p-4">
+              <h3 class="h5 fw-semibold text-dark">Boutique en ligne</h3>
+              <p class="text-muted">
+                Démarrez votre activité en ligne avec une boutique facile à gérer, sécurisée et optimisée pour la
+                conversion.
+              </p>
+            </div>
+          </div>
+          <!-- Service 3 : Maintenance & Évolution -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-lg border-0 rounded-lg p-4">
+              <h3 class="h5 fw-semibold text-dark">Maintenance & Évolution</h3>
+              <p class="text-muted">
+                Nous ne vous laissons pas seul. Notre équipe assure la maintenance et vous accompagne pour faire évoluer
+                votre site au fil du temps.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section "Pourquoi nous choisir ?" -->
+    <section id="pourquoi-nous" class="py-5 bg-white">
+      <div class="container text-center">
+        <h2 class="h3 fw-bold text-dark">La différence, c'est notre engagement</h2>
+        <div class="row align-items-center mt-5">
+          <div class="col-lg-6 mb-4 mb-lg-0 d-flex justify-content-center">
+            <!-- GIF animé pour un rendu plus humain et dynamique -->
+            <img src="https://images.pexels.com/photos/4045551/pexels-photo-4045551.jpeg" class="img-fluid rounded h-50"
+              alt="Illustration des paramètres personnels">
+
+          </div>
+          <div class="col-lg-6 text-start">
+            <div class="d-flex align-items-start mb-4">
+              <i class="bi bi-check-circle-fill text-turquoise me-3" style="font-size: 1.5rem;"></i>
+              <div>
+                <h3 class="h5 fw-semibold text-dark">Vos données vous appartiennent</h3>
+                <p class="text-muted">Nous vous fournissons l'intégralité des fichiers de votre site. Vous n'êtes pas
+                  prisonnier d'une plateforme.</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start mb-4">
+              <i class="bi bi-check-circle-fill text-turquoise me-3" style="font-size: 1.5rem;"></i>
+              <div>
+                <h3 class="h5 fw-semibold text-dark">Un outil sans prise de tête</h3>
+                <p class="text-muted">Modifiez votre contenu en quelques clics grâce à notre outil simple et intuitif.
+                  Mises à jour faciles et rapides.</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start mb-4">
+              <i class="bi bi-check-circle-fill text-turquoise me-3" style="font-size: 1.5rem;"></i>
+              <div>
+                <h3 class="h5 fw-semibold text-dark">Support client personnalisé</h3>
+                <p class="text-muted">Parlez à un humain qui comprend vos besoins. C'est l'écoute et le contact qui font
+                  la différence.</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start">
+              <i class="bi bi-check-circle-fill text-turquoise me-3" style="font-size: 1.5rem;"></i>
+              <div>
+                <h3 class="h5 fw-semibold text-dark">Flexibilité et sur-mesure</h3>
+                <p class="text-muted">Chaque projet est unique. Nous nous adaptons à vos spécifications pour créer le
+                  site parfait pour vous.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section de contact -->
+    <section id="contact" class="py-5 bg-blue">
+      <div class="container text-center">
+        <h2 class="h3 fw-bold">Prêt à démarrer votre projet ?</h2>
+        <p class="mt-3  mx-auto" style="max-width: 700px;">
+          Contactez-nous pour une discussion sans engagement. Ensemble, nous allons construire un site qui vous
+          ressemble.
+        </p>
+        <div class="row justify-content-center mt-4">
+          <div class="col-lg-8">
+            <form class="bg-white p-4 rounded-lg shadow-lg text-dark">
+              <div class="mb-3">
+                <input type="text" placeholder="Nom complet" class="form-control rounded-lg" required>
+              </div>
+              <div class="mb-3">
+                <input type="email" placeholder="Adresse e-mail" class="form-control rounded-lg" required>
+              </div>
+              <div class="mb-3">
+                <textarea placeholder="Votre message..." rows="4" class="form-control rounded-lg" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-turquoise w-100 py-2 rounded-lg fw-semibold">
+                Envoyer le message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="bg-dark text-white-50 py-4">
+    <div class="container text-center text-md-start d-md-flex justify-content-between align-items-center">
+      <p class="mb-2 mb-md-0">&copy; 2024 Agence Human. Tous droits réservés.</p>
+      <div class="mt-2 mt-md-0 d-flex justify-content-center gap-3">
+        <a href="#" class="text-white-50 text-decoration-none">Politique de confidentialité</a>
+        <a href="#" class="text-white-50 text-decoration-none">Mentions légales</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script pour le CDN de Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <!-- Script pour ajuster le scroll-padding-top en fonction de la hauteur du menu -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('.header-sticky')
+      const root = document.documentElement
+
+      const updateScrollPadding = () => {
+        const headerHeight = header.offsetHeight
+        root.style.setProperty('--header-height', `${headerHeight}px`)
+      }
+
+      // Mettre à jour l'espacement au chargement et au redimensionnement de la fenêtre
+      updateScrollPadding()
+      window.addEventListener('resize', updateScrollPadding)
+    });
+  </script>
+</body>
+
+</html>
